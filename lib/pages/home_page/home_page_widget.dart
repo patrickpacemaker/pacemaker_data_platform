@@ -23,6 +23,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -88,7 +90,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Ada',
+                                  FFLocalizations.of(context).getText(
+                                    'kmtxfw8n' /* Ada */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -98,7 +102,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       ),
                                 ),
                                 Text(
-                                  'pacemaker Data Repository',
+                                  FFLocalizations.of(context).getText(
+                                    'g1c1njeh' /* pacemaker Data Repository */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -133,7 +139,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Hypatia',
+                                FFLocalizations.of(context).getText(
+                                  'z33syfmw' /* Hypatia */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -143,7 +151,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                               ),
                               Text(
-                                'Event Hub',
+                                FFLocalizations.of(context).getText(
+                                  'wu0zrts5' /* Event Hub */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ],

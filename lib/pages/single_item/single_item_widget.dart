@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -28,6 +27,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SingleItemModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -50,8 +51,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: double.infinity,
-                height: 125.0,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.15,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   border: Border.all(
@@ -89,7 +90,9 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                'admin@pacemaker.ai',
+                                FFLocalizations.of(context).getText(
+                                  'ejygfrmk' /* admin@pacemaker.ai */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -145,8 +148,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                 ),
               ),
               Container(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.9,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.85,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -156,8 +159,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Container(
-                        width: 250.0,
-                        height: MediaQuery.sizeOf(context).height * 0.9,
+                        width: MediaQuery.sizeOf(context).width * 0.15,
+                        height: MediaQuery.sizeOf(context).height * 0.85,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -168,399 +171,313 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: MediaQuery.sizeOf(context).height * 0.95,
+                      width: MediaQuery.sizeOf(context).width * 0.85,
+                      height: MediaQuery.sizeOf(context).height * 0.85,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).lineColor,
                       ),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 25.0, 55.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.08,
-                                    height: MediaQuery.sizeOf(context).height *
-                                        0.95,
-                                    constraints: BoxConstraints(
-                                      minWidth:
-                                          MediaQuery.sizeOf(context).width *
-                                              0.8,
-                                      minHeight:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.8,
-                                      maxWidth:
-                                          MediaQuery.sizeOf(context).width *
-                                              0.85,
-                                      maxHeight:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.85,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 0.0),
-                                          child: Text(
-                                            'WTI Oil',
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineLarge,
+                                Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.08,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.83,
+                                  constraints: BoxConstraints(
+                                    minWidth:
+                                        MediaQuery.sizeOf(context).width * 0.8,
+                                    minHeight:
+                                        MediaQuery.sizeOf(context).height * 0.8,
+                                    maxWidth:
+                                        MediaQuery.sizeOf(context).width * 0.85,
+                                    maxHeight:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.85,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 20.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'mqxr4vsj' /* WTI Oil */,
                                           ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineLarge,
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: ListView(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            children: [
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: 'DB Table:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .backgroundComponents,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: ListView(
+                                          padding: EdgeInsets.zero,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          children: [
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'hz7yuyto' /* DB Table: */,
                                                     ),
-                                                    TextSpan(
-                                                      text:
-                                                          ' finance_commodities_wtioil',
-                                                      style: TextStyle(),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: 'Account Name:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .backgroundComponents,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                    ),
-                                                    TextSpan(
-                                                      text:
-                                                          ' adastorageaccount',
-                                                      style: TextStyle(),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: 'ENDPOINT:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .backgroundComponents,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                    ),
-                                                    TextSpan(
-                                                      text:
-                                                          ' https//pacemakerdataplatform.table.cosmis.azure:443/',
-                                                      style: TextStyle(),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: 'PRIMARY KEY:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .backgroundComponents,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                    ),
-                                                    TextSpan(
-                                                      text:
-                                                          ' 8J388JJ1949DJKDL91019A1KFJ828NF8J9==',
-                                                      style: TextStyle(),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: 'SECONDARY KEY:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .backgroundComponents,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                    ),
-                                                    TextSpan(
-                                                      text:
-                                                          '  1NYMMTJ8AJJF74JDJ72NNC82LA91AKF0A ==',
-                                                      style: TextStyle(),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text:
-                                                          'PRIMARY CONNECTION STRING:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .backgroundComponents,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                    ),
-                                                    TextSpan(
-                                                      text:
-                                                          ' DefaultEndpointsProtocoll=https;AccountName=adastorageaccount;AccountKey=8J388JJ1949DJKDL91019A1KFJ828NF8J9==',
-                                                      style: TextStyle(),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                              RichText(
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text:
-                                                          'SECONDARY CONNECTION STRING:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .backgroundComponents,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                    ),
-                                                    TextSpan(
-                                                      text:
-                                                          ' DefaultEndpointsProtocoll=https;AccountName=adastorageaccount;AccountKey=1NYMMTJ8AJJF74JDJ72NNC82LA91AKF0A==',
-                                                      style: TextStyle(),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 50.0, 0.0, 0.0),
-                                            child: DataTable2(
-                                              columns: [
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
-                                                      'Feature / Column',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge,
-                                                    ),
-                                                  ),
-                                                ),
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
-                                                      'Data type',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge,
-                                                    ),
-                                                  ),
-                                                ),
-                                                DataColumn2(
-                                                  label: DefaultTextStyle.merge(
-                                                    softWrap: true,
-                                                    child: Text(
-                                                      'Description',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLarge,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                              rows: dataTableRecordList
-                                                  .mapIndexed((dataTableIndex,
-                                                          dataTableRecord) =>
-                                                      [
-                                                        Text(
-                                                          'Date',
-                                                          style: FlutterFlowTheme
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyMedium,
+                                                              .backgroundComponents,
+                                                          fontWeight:
+                                                              FontWeight.bold,
                                                         ),
-                                                        Text(
-                                                          'datetime',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              'the datetime',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                            Text(
-                                                              'Hello World',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ]
-                                                          .map((c) =>
-                                                              DataCell(c))
-                                                          .toList())
-                                                  .map((e) => DataRow(cells: e))
-                                                  .toList(),
-                                              headingRowColor:
-                                                  MaterialStateProperty.all(
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBackground,
+                                                  ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'koug62m3' /*  finance_commodities_wtioil */,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
                                               ),
-                                              headingRowHeight: 56.0,
-                                              dataRowColor:
-                                                  MaterialStateProperty.all(
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                              ),
-                                              dataRowHeight: 56.0,
-                                              border: TableBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(0.0),
-                                              ),
-                                              dividerThickness: 1.0,
-                                              showBottomBorder: true,
-                                              minWidth: 49.0,
                                             ),
-                                          ),
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'r2b2cx77' /* Account Name: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .backgroundComponents,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'qvp3j716' /*  adastorageaccount */,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      '7zy85926' /* ENDPOINT: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .backgroundComponents,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'y0pxcv58' /*  https//pacemakerdataplatform.... */,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'k2pa6utc' /* PRIMARY KEY: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .backgroundComponents,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'jrbk309k' /*  8J388JJ1949DJKDL91019A1KFJ828... */,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'hl1p5r9m' /* SECONDARY KEY: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .backgroundComponents,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'k0eikjxr' /*   1NYMMTJ8AJJF74JDJ72NNC82LA91... */,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'ttqo4cxp' /* PRIMARY CONNECTION STRING: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .backgroundComponents,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'ekzb2b8z' /*  DefaultEndpointsProtocoll=htt... */,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'q4xigyp6' /* SECONDARY CONNECTION STRING: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .backgroundComponents,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      '3s7noixt' /*  DefaultEndpointsProtocoll=htt... */,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],

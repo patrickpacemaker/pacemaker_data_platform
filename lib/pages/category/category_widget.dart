@@ -26,6 +26,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CategoryModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -48,8 +50,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: double.infinity,
-                height: 125.0,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.15,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   border: Border.all(
@@ -87,7 +89,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                'admin@pacemaker.ai',
+                                FFLocalizations.of(context).getText(
+                                  'y7rw6tn4' /* admin@pacemaker.ai */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -143,8 +147,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                 ),
               ),
               Container(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.9,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.85,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -154,8 +158,8 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Container(
-                        width: 250.0,
-                        height: MediaQuery.sizeOf(context).height * 0.9,
+                        width: MediaQuery.sizeOf(context).width * 0.15,
+                        height: MediaQuery.sizeOf(context).height * 0.85,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -166,457 +170,240 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: MediaQuery.sizeOf(context).height * 0.95,
+                      width: MediaQuery.sizeOf(context).width * 0.85,
+                      height: MediaQuery.sizeOf(context).height * 0.85,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).lineColor,
                       ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 25.0, 55.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.95,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
                                 height:
-                                    MediaQuery.sizeOf(context).height * 0.95,
-                                constraints: BoxConstraints(
-                                  minWidth:
-                                      MediaQuery.sizeOf(context).width * 0.8,
-                                  minHeight:
-                                      MediaQuery.sizeOf(context).height * 0.8,
-                                  maxWidth:
-                                      MediaQuery.sizeOf(context).width * 0.85,
-                                  maxHeight:
-                                      MediaQuery.sizeOf(context).height * 0.85,
-                                ),
+                                    MediaQuery.sizeOf(context).height * 0.15,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .primaryBtnText,
+                                      .secondaryBackground,
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                child: GridView(
-                                  padding: EdgeInsets.zero,
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 4,
-                                    crossAxisSpacing: 10.0,
-                                    mainAxisSpacing: 5.0,
-                                    childAspectRatio: 0.8,
-                                  ),
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.horizontal,
-                                  children: [
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      elevation: 2.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/500/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/391/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/80/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/391/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/542/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/523/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/818/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/203/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/214/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/152/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/52/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/494/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/190/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/991/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/679/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/58/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/199/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/166/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/207/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 4.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/497/600',
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.15,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],

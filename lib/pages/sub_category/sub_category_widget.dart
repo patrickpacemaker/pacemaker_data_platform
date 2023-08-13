@@ -26,6 +26,8 @@ class _SubCategoryWidgetState extends State<SubCategoryWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SubCategoryModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -48,8 +50,8 @@ class _SubCategoryWidgetState extends State<SubCategoryWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: double.infinity,
-                height: 125.0,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.15,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   border: Border.all(
@@ -87,7 +89,9 @@ class _SubCategoryWidgetState extends State<SubCategoryWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                'admin@pacemaker.ai',
+                                FFLocalizations.of(context).getText(
+                                  'tefcrq5d' /* admin@pacemaker.ai */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -143,8 +147,8 @@ class _SubCategoryWidgetState extends State<SubCategoryWidget> {
                 ),
               ),
               Container(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.9,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.85,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -154,8 +158,8 @@ class _SubCategoryWidgetState extends State<SubCategoryWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Container(
-                        width: 250.0,
-                        height: MediaQuery.sizeOf(context).height * 0.9,
+                        width: MediaQuery.sizeOf(context).width * 0.15,
+                        height: MediaQuery.sizeOf(context).height * 0.85,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -166,8 +170,8 @@ class _SubCategoryWidgetState extends State<SubCategoryWidget> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: MediaQuery.sizeOf(context).height * 0.95,
+                      width: MediaQuery.sizeOf(context).width * 0.85,
+                      height: MediaQuery.sizeOf(context).height * 0.85,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).lineColor,
                       ),

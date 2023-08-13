@@ -26,6 +26,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DashboardModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -49,7 +51,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             children: [
               Container(
                 width: double.infinity,
-                height: 125.0,
+                height: MediaQuery.sizeOf(context).height * 0.15,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   border: Border.all(
@@ -61,7 +63,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 300.0,
+                      width: MediaQuery.sizeOf(context).width * 0.15,
                       height: 125.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -87,7 +89,9 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                'admin@pacemaker.ai',
+                                FFLocalizations.of(context).getText(
+                                  'sz1x8ixi' /* admin@pacemaker.ai */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -108,33 +112,55 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 60.0,
-                            icon: FaIcon(
-                              FontAwesomeIcons.bell,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 30.0,
-                            ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                icon: FaIcon(
+                                  FontAwesomeIcons.bell,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 30.0,
+                                ),
+                                onPressed: () {
+                                  print('IconButton pressed ...');
+                                },
+                              ),
+                              Container(
+                                width: 50.0,
+                                height: 50.0,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/Ellipse_9.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
                           ),
-                          Container(
-                            width: 50.0,
-                            height: 50.0,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.asset(
-                              'assets/images/Ellipse_9.png',
-                              fit: BoxFit.cover,
-                            ),
+                          Switch.adaptive(
+                            value: _model.switchValue ??= true,
+                            onChanged: (newValue) async {
+                              setState(() => _model.switchValue = newValue!);
+                              if (newValue!) {
+                                setDarkModeSetting(context, ThemeMode.light);
+                              }
+                            },
+                            activeColor: FlutterFlowTheme.of(context).primary,
+                            activeTrackColor:
+                                FlutterFlowTheme.of(context).accent1,
+                            inactiveTrackColor:
+                                FlutterFlowTheme.of(context).alternate,
+                            inactiveThumbColor:
+                                FlutterFlowTheme.of(context).secondaryText,
                           ),
                         ],
                       ),
@@ -143,8 +169,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 ),
               ),
               Container(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.9,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.85,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -154,8 +180,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Container(
-                        width: 250.0,
-                        height: MediaQuery.sizeOf(context).height * 0.9,
+                        width: MediaQuery.sizeOf(context).width * 0.15,
+                        height: MediaQuery.sizeOf(context).height * 0.85,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -166,82 +192,133 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                     ),
                     Container(
-                      width: 1450.0,
-                      height: MediaQuery.sizeOf(context).height * 0.9,
+                      width: MediaQuery.sizeOf(context).width * 0.85,
+                      height: MediaQuery.sizeOf(context).height * 0.85,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).lineColor,
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 11.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.25,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.2,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.25,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.2,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(20.0),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.52,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.17,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                Column(
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.26,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.17,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(29.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.52,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.36,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.26,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.36,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFE0E3E7),
+                                ),
+                                child: Column(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
-                                          0.35,
+                                          0.26,
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.75,
+                                              0.16,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                            .primaryBtnText,
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.26,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.16,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                         borderRadius:
                                             BorderRadius.circular(20.0),
                                       ),
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.25,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.26,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(29.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.25,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.26,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(29.0),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.26,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.26,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(29.0),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

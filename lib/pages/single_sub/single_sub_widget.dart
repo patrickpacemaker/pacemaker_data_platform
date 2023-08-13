@@ -27,6 +27,8 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SingleSubModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -49,8 +51,8 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: double.infinity,
-                height: 125.0,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.15,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   border: Border.all(
@@ -88,7 +90,9 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                'admin@pacemaker.ai',
+                                FFLocalizations.of(context).getText(
+                                  'f62hqwqs' /* admin@pacemaker.ai */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -144,8 +148,8 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                 ),
               ),
               Container(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.9,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.85,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -155,8 +159,8 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Container(
-                        width: 250.0,
-                        height: MediaQuery.sizeOf(context).height * 0.9,
+                        width: MediaQuery.sizeOf(context).width * 0.15,
+                        height: MediaQuery.sizeOf(context).height * 0.85,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -167,38 +171,28 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 0.9,
-                      height: MediaQuery.sizeOf(context).height * 0.95,
+                      width: MediaQuery.sizeOf(context).width * 0.85,
+                      height: MediaQuery.sizeOf(context).height * 0.85,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).lineColor,
                       ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 25.0, 55.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.08,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            25.0, 50.0, 0.0, 0.0),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
                                 height:
-                                    MediaQuery.sizeOf(context).height * 0.95,
-                                constraints: BoxConstraints(
-                                  minWidth:
-                                      MediaQuery.sizeOf(context).width * 0.8,
-                                  minHeight:
-                                      MediaQuery.sizeOf(context).height * 0.8,
-                                  maxWidth:
-                                      MediaQuery.sizeOf(context).width * 0.85,
-                                  maxHeight:
-                                      MediaQuery.sizeOf(context).height * 0.85,
-                                ),
+                                    MediaQuery.sizeOf(context).height * 0.04,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
-                                      .primaryBtnText,
-                                  borderRadius: BorderRadius.circular(20.0),
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -207,109 +201,1446 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                   children: [
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
-                                          0.35,
+                                          0.1,
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.85,
+                                              0.04,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      child: ListView(
-                                        padding: EdgeInsets.zero,
-                                        scrollDirection: Axis.vertical,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 50.0, 0.0, 0.0),
-                                            child: Container(
-                                              width: 150.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.1,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent4,
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                              ),
-                                              child: AutoSizeText(
-                                                'WTI Oil',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 50.0, 0.0, 0.0),
-                                            child: Container(
-                                              width: 250.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.1,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent4,
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                              ),
-                                              child: AutoSizeText(
-                                                'Wheat',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 50.0, 0.0, 0.0),
-                                            child: Container(
-                                              width: 250.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.1,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent4,
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                              ),
-                                              child: AutoSizeText(
-                                                'Aluminium',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'bnvb06wn' /* Product Name */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
                                       ),
                                     ),
                                     Container(
-                                      width: 100.0,
-                                      height: 100.0,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'pv0r6ci9' /* Data Type */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'jw8be9ba' /* Source/Origin */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'zq233egm' /* Number of Entries */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '91e0ikwr' /* Last Update */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'eawe34wj' /* Status */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 25.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.8,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.04,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    border: Border.all(
+                                      color:
+                                          FlutterFlowTheme.of(context).black600,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.1,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: AutoSizeText(
+                                          FFLocalizations.of(context).getText(
+                                            'yu2x6eyf' /* WTI Oil */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          minFontSize: 12.0,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 100.0,
+                                        child: VerticalDivider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.1,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: AutoSizeText(
+                                          FFLocalizations.of(context).getText(
+                                            'q2p6to9y' /* Finance */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          minFontSize: 12.0,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 100.0,
+                                        child: VerticalDivider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.1,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: AutoSizeText(
+                                          FFLocalizations.of(context).getText(
+                                            'qp848f9z' /* alphavantage */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          minFontSize: 12.0,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 100.0,
+                                        child: VerticalDivider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.1,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: AutoSizeText(
+                                          FFLocalizations.of(context).getText(
+                                            'd69zmqx7' /* 42 */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          minFontSize: 12.0,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 100.0,
+                                        child: VerticalDivider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.1,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: AutoSizeText(
+                                          FFLocalizations.of(context).getText(
+                                            'zyaxgcwi' /* 17.08.2023 */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          minFontSize: 12.0,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 100.0,
+                                        child: VerticalDivider(
+                                          thickness: 1.0,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
+                                        ),
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.1,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: AutoSizeText(
+                                          FFLocalizations.of(context).getText(
+                                            'u7hfg3wq' /* Updated */,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          minFontSize: 12.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.04,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).black600,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'mxuoi1is' /* Brent Oil */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'iazhftxa' /* Finance */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '88q0jodk' /* alphavantage */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'vxrkaj0p' /* 39 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'kgcnfq9r' /* 17.08.2023 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'set7sa7e' /* Updated */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.04,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).black600,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'n69smgq4' /* WTI Oil */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '5jx2y51j' /* Finance */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'k2wh633l' /* alphavantage */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'ga5xi6is' /* 42 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'wwr0vqtm' /* 17.08.2023 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '47xt083g' /* Updated */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.04,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).black600,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'l00fnsgv' /* WTI Oil */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'cchf5cw8' /* Finance */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'rfauslh7' /* alphavantage */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'dz4d4gxb' /* 42 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'du9jh0hg' /* 17.08.2023 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'uh9f6hd5' /* Updated */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.04,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).black600,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '6msp9c6n' /* WTI Oil */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'fhfottja' /* Finance */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'logleoew' /* alphavantage */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'us6dw4qd' /* 42 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'an02z02t' /* 17.08.2023 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'ou3hj173' /* Updated */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.04,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).black600,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '0h9i9t7d' /* WTI Oil */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '24ds0t1k' /* Finance */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'pp7xtzhn' /* alphavantage */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'q0nwn91v' /* 42 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '815gvw5j' /* 17.08.2023 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'qqjx5epd' /* Updated */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.04,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color:
+                                        FlutterFlowTheme.of(context).black600,
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '0plfg5sq' /* WTI Oil */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'du3gi9hp' /* Finance */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'x2snfe1r' /* alphavantage */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'l8ciwqxd' /* 42 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          '00y7i2ne' /* 17.08.2023 */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 100.0,
+                                      child: VerticalDivider(
+                                        thickness: 1.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.04,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'w9edrnl1' /* Updated */,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        minFontSize: 12.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
