@@ -1,3 +1,4 @@
+import '/components/side_nav02_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -12,13 +13,18 @@ class CategoryModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Model for SideNav02 component.
+  late SideNav02Model sideNav02Model;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    sideNav02Model = createModel(context, () => SideNav02Model());
+  }
 
   void dispose() {
     unfocusNode.dispose();
+    sideNav02Model.dispose();
   }
 
   /// Action blocks are added here.

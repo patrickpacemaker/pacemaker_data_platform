@@ -111,7 +111,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                             tabs: [
                               Tab(
                                 text: FFLocalizations.of(context).getText(
-                                  'vymklxe7' /* Login */,
+                                  'pkzn84mn' /* Login */,
                                 ),
                               ),
                             ],
@@ -141,7 +141,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             labelText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'xzjihr7v' /* Email Address */,
+                                              'lhojmaln' /* Email Address */,
                                             ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
@@ -227,7 +227,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             labelText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'cfco8cq6' /* Password */,
+                                              'efczczp3' /* Password */,
                                             ),
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
@@ -242,7 +242,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                              'tstxq2u0' /* Password */,
+                                              '38dl1bcs' /* Password */,
                                             ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
@@ -329,16 +329,9 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         children: [
                                           Text(
                                             FFLocalizations.of(context).getText(
-                                              'j3zrsklq' /* Save Credentials  */,
+                                              '261qkn24' /* Save Credentials  */,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBtnText,
-                                                ),
+                                            style: GoogleFonts.ubuntu(color: Colors.white)
                                           ),
                                           Theme(
                                             data: ThemeData(
@@ -398,10 +391,8 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             context.goNamedAuth(
                                                 'Dashboard', context.mounted);
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'pdnqp7u9' /* Login */,
-                                          ),
+                                          text: "Login",
+                                          
                                           options: FFButtonOptions(
                                             width: 230.0,
                                             height: 50.0,
@@ -413,17 +404,16 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .secondary,
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleSmall
-                                                .override(
-                                                  fontFamily: 'Lexend Deca',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBtnText,
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Colors.white,
+                                                      fontSize: 16.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                             elevation: 3.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
@@ -436,13 +426,12 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 20.0, 0.0, 0.0),
                                         child: FFButtonWidget(
+                                          
                                           onPressed: () async {
                                             context.pushNamed('forgotPassword');
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'bi1xolfq' /* Forgot Password? */,
-                                          ),
+                                          text: "Forgot password?",
+                                          
                                           options: FFButtonOptions(
                                             width: 170.0,
                                             height: 40.0,
@@ -452,17 +441,8 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0x0039D2C0),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryBtnText,
-                                                    ),
+                                            color: Colors.white,
+                                           
                                             elevation: 0.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,

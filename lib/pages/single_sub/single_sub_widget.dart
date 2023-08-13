@@ -1,3 +1,4 @@
+import '/components/side_nav02_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -76,28 +77,28 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
+                          Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 90.0, 0.0),
                               child: SvgPicture.asset(
                                 'assets/images/pacemaker_logo.svg',
-                                width: 220.8,
-                                height: 100.0,
-                                fit: BoxFit.cover,
+                                width: MediaQuery.of(context).size.width * 0.2,
+                                height: MediaQuery.of(context).size.height * 0.05,
+                                fit: BoxFit.fitWidth,
                               ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'f62hqwqs' /* admin@pacemaker.ai */,
-                                ),
+                                 "admin@pacemaker.ai",
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w300,
+                                      color: FlutterFlowTheme.of(context).primaryText
+                                      
                                     ),
                               ),
                             ),
@@ -162,10 +163,637 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: MediaQuery.sizeOf(context).height * 0.85,
                         decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          borderRadius: BorderRadius.circular(0.0),
                           border: Border.all(
-                            width: 0.5,
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 24.0, 0.0, 16.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF675AFF),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.space_dashboard_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBtnText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  "Dashboard",
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('Category');
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.category_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child:
+                                                      Text("Top Level Category",
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          )),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.settings_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  "Idea?",
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      "Settings",
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.notifications_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  "Notifications",
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              height: 32.0,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 4.0, 8.0, 4.0),
+                                                  child: Text(
+                                                    "12",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.person_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  "User",
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: AnimatedContainer(
+                                      duration: Duration(milliseconds: 200),
+                                      curve: Curves.easeInOut,
+                                      width: double.infinity,
+                                      height: 44.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.wifi_tethering_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              size: 24.0,
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  "Explore",
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ].divide(SizedBox(height: 12.0)),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 0.15,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.12,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    if ((Theme.of(context).brightness ==
+                                            Brightness.dark) ==
+                                        false)
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.13,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(25.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                setDarkModeSetting(
+                                                    context, ThemeMode.light);
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.065,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.035,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.0),
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  "Light Mode",
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                setDarkModeSetting(
+                                                    context, ThemeMode.dark);
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.065,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.035,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.0),
+                                                ),
+                                                child: Text(
+                                                  "Dark Mode",
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    if ((Theme.of(context).brightness ==
+                                            Brightness.dark) ==
+                                        true)
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.13,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.04,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(25.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                setDarkModeSetting(
+                                                    context, ThemeMode.light);
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.065,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.035,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.0),
+                                                ),
+                                                child: Text(
+                                                  "Light Mode",
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ),
+                                            InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                setDarkModeSetting(
+                                                    context, ThemeMode.dark);
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.065,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.035,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.0),
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  "Dark Mode",
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    Divider(
+                                      height: 12.0,
+                                      thickness: 2.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 12.0, 16.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Logout",
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFF9A0D0D),
+                                                ),
+                                          ),
+                                          Icon(
+                                            Icons.login_outlined,
+                                            color: Color(0xFF9A0D0D),
+                                            size: 24.0,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -210,9 +838,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'bnvb06wn' /* Product Name */,
-                                        ),
+                                       "Product Name",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -238,9 +864,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'pv0r6ci9' /* Data Type */,
-                                        ),
+                                       "Category type",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -266,9 +890,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'jw8be9ba' /* Source/Origin */,
-                                        ),
+                                       "Source / Origin",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -294,9 +916,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'zq233egm' /* Number of Entries */,
-                                        ),
+                                        "Number of entries",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -322,9 +942,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '91e0ikwr' /* Last Update */,
-                                        ),
+                                       "Last update",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -350,9 +968,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'eawe34wj' /* Status */,
-                                        ),
+                                        "Status",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -378,178 +994,175 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                           FlutterFlowTheme.of(context).black600,
                                     ),
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.1,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.04,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: AutoSizeText(
-                                          FFLocalizations.of(context).getText(
-                                            'yu2x6eyf' /* WTI Oil */,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('singleItem');
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.1,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.04,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          minFontSize: 12.0,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 100.0,
-                                        child: VerticalDivider(
-                                          thickness: 1.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayIcon,
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.1,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.04,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: AutoSizeText(
-                                          FFLocalizations.of(context).getText(
-                                            'q2p6to9y' /* Finance */,
+                                          child: AutoSizeText(
+                                            "WTI Oil",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          minFontSize: 12.0,
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 100.0,
-                                        child: VerticalDivider(
-                                          thickness: 1.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayIcon,
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.1,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.04,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: AutoSizeText(
-                                          FFLocalizations.of(context).getText(
-                                            'qp848f9z' /* alphavantage */,
+                                        SizedBox(
+                                          height: 100.0,
+                                          child: VerticalDivider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .grayIcon,
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          minFontSize: 12.0,
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 100.0,
-                                        child: VerticalDivider(
-                                          thickness: 1.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayIcon,
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.1,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.04,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: AutoSizeText(
-                                          FFLocalizations.of(context).getText(
-                                            'd69zmqx7' /* 42 */,
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.1,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.04,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          minFontSize: 12.0,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 100.0,
-                                        child: VerticalDivider(
-                                          thickness: 1.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayIcon,
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.1,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.04,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: AutoSizeText(
-                                          FFLocalizations.of(context).getText(
-                                            'zyaxgcwi' /* 17.08.2023 */,
+                                          child: AutoSizeText(
+                                           "Finance",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          minFontSize: 12.0,
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 100.0,
-                                        child: VerticalDivider(
-                                          thickness: 1.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayIcon,
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.1,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.04,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: AutoSizeText(
-                                          FFLocalizations.of(context).getText(
-                                            'u7hfg3wq' /* Updated */,
+                                        SizedBox(
+                                          height: 100.0,
+                                          child: VerticalDivider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .grayIcon,
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          minFontSize: 12.0,
                                         ),
-                                      ),
-                                    ],
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.1,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.04,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: AutoSizeText(
+                                           "alphavantage",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 100.0,
+                                          child: VerticalDivider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .grayIcon,
+                                          ),
+                                        ),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.1,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.04,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: AutoSizeText(
+                                           "42",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 100.0,
+                                          child: VerticalDivider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .grayIcon,
+                                          ),
+                                        ),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.1,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.04,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: AutoSizeText(
+                                            "17.08.2023",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 100.0,
+                                          child: VerticalDivider(
+                                            thickness: 1.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .grayIcon,
+                                          ),
+                                        ),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.1,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.04,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: AutoSizeText(
+                                           "Updated",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -582,9 +1195,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'mxuoi1is' /* Brent Oil */,
-                                        ),
+                                      "Brent Oil",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -610,9 +1221,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'iazhftxa' /* Finance */,
-                                        ),
+                                        "Finance",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -638,9 +1247,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '88q0jodk' /* alphavantage */,
-                                        ),
+                                       "alphavantage",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -666,9 +1273,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'vxrkaj0p' /* 39 */,
-                                        ),
+                                       "39",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -694,14 +1299,12 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'kgcnfq9r' /* 17.08.2023 */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        minFontSize: 12.0,
-                                      ),
+                                      "17.08.2023",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
                                     ),
                                     SizedBox(
                                       height: 100.0,
@@ -722,9 +1325,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'set7sa7e' /* Updated */,
-                                        ),
+                                       "Updated",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -763,9 +1364,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'n69smgq4' /* WTI Oil */,
-                                        ),
+                                       "Wheat",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -791,9 +1390,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '5jx2y51j' /* Finance */,
-                                        ),
+                                       "Finance",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -819,9 +1416,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'k2wh633l' /* alphavantage */,
-                                        ),
+                                      "alphavantage",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -847,9 +1442,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'ga5xi6is' /* 42 */,
-                                        ),
+                                       "2",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -875,14 +1468,12 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'wwr0vqtm' /* 17.08.2023 */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        minFontSize: 12.0,
-                                      ),
+                                      "17.08.2023",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
                                     ),
                                     SizedBox(
                                       height: 100.0,
@@ -903,9 +1494,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '47xt083g' /* Updated */,
-                                        ),
+                                       "Raw",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -944,9 +1533,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'l00fnsgv' /* WTI Oil */,
-                                        ),
+                                       "Aluminium",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -972,9 +1559,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'cchf5cw8' /* Finance */,
-                                        ),
+                                       "Finance",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1000,9 +1585,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'rfauslh7' /* alphavantage */,
-                                        ),
+                                        "alphavantage",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1028,9 +1611,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'dz4d4gxb' /* 42 */,
-                                        ),
+                                       "51",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1056,14 +1637,12 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'du9jh0hg' /* 17.08.2023 */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        minFontSize: 12.0,
-                                      ),
+                                      "17.08.2023",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
                                     ),
                                     SizedBox(
                                       height: 100.0,
@@ -1084,9 +1663,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'uh9f6hd5' /* Updated */,
-                                        ),
+                                        "Updated",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1125,9 +1702,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '6msp9c6n' /* WTI Oil */,
-                                        ),
+                                        "Natural Gas",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1153,9 +1728,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'fhfottja' /* Finance */,
-                                        ),
+                                       "Finance",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1181,9 +1754,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'logleoew' /* alphavantage */,
-                                        ),
+                                      "alphavantage",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1209,9 +1780,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'us6dw4qd' /* 42 */,
-                                        ),
+                                       "25",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1237,14 +1806,12 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'an02z02t' /* 17.08.2023 */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        minFontSize: 12.0,
-                                      ),
+                                      "17.08.2023",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
                                     ),
                                     SizedBox(
                                       height: 100.0,
@@ -1265,9 +1832,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'ou3hj173' /* Updated */,
-                                        ),
+                                      "Updated",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1306,9 +1871,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '0h9i9t7d' /* WTI Oil */,
-                                        ),
+                                       "Copper",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1334,9 +1897,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '24ds0t1k' /* Finance */,
-                                        ),
+                                       "Finance",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1362,9 +1923,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'pp7xtzhn' /* alphavantage */,
-                                        ),
+                                        "alphavantage",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1390,9 +1949,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'q0nwn91v' /* 42 */,
-                                        ),
+                                       "2",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1418,14 +1975,12 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '815gvw5j' /* 17.08.2023 */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        minFontSize: 12.0,
-                                      ),
+                                      "17.08.2023",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
                                     ),
                                     SizedBox(
                                       height: 100.0,
@@ -1446,9 +2001,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'qqjx5epd' /* Updated */,
-                                        ),
+                                       "Raw",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1487,9 +2040,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '0plfg5sq' /* WTI Oil */,
-                                        ),
+                                        "Steel",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1515,9 +2066,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'du3gi9hp' /* Finance */,
-                                        ),
+                                       "Finance",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1543,9 +2092,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'x2snfe1r' /* alphavantage */,
-                                        ),
+                                       "alphavantage",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1571,9 +2118,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'l8ciwqxd' /* 42 */,
-                                        ),
+                                       "48",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
@@ -1599,14 +2144,12 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          '00y7i2ne' /* 17.08.2023 */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        minFontSize: 12.0,
-                                      ),
+                                      "17.08.2023",
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            minFontSize: 12.0,
+                                          ),
                                     ),
                                     SizedBox(
                                       height: 100.0,
@@ -1627,9 +2170,7 @@ class _SingleSubWidgetState extends State<SingleSubWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: AutoSizeText(
-                                        FFLocalizations.of(context).getText(
-                                          'w9edrnl1' /* Updated */,
-                                        ),
+                                        "Updated",
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,

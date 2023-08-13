@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setDarkModeSetting(context, ThemeMode.light);
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -81,8 +87,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             width: 591.0,
                             height: 256.0,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: Column(
@@ -97,6 +103,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .black600,
                                         fontSize: 36.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -105,8 +113,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   FFLocalizations.of(context).getText(
                                     'g1c1njeh' /* pacemaker Data Repository */,
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
                                 ),
                               ],
                             ),
@@ -130,8 +143,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           width: 591.0,
                           height: 256.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
                             borderRadius: BorderRadius.circular(15.0),
                           ),
                           child: Column(
@@ -146,6 +158,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
+                                      color:
+                                          FlutterFlowTheme.of(context).black600,
                                       fontSize: 36.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -154,7 +168,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 FFLocalizations.of(context).getText(
                                   'wu0zrts5' /* Event Hub */,
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color:
+                                          FlutterFlowTheme.of(context).black600,
+                                    ),
                               ),
                             ],
                           ),

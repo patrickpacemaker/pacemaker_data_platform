@@ -51,13 +51,12 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: Image.asset(
-                  'assets/images/MicrosoftTeams-image_(1).png',
-                ).image,
-              ),
-            ),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: Image.network(
+                'https://images.unsplash.com/photo-1525824236856-8c0a31dfe3be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8d2F0ZXJmYWxsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+              ).image,
+            )),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -97,7 +96,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'qzopzqgt' /* Forgot Password */,
+                              'liobs1ph' /* Forgot Password */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
@@ -113,7 +112,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 0.0, 12.0, 0.0, 24.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'r4radlgi' /* Enter your email address to re... */,
+                                '7s0f1p4y' /* Enter your email address to re... */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -133,7 +132,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelText: FFLocalizations.of(context).getText(
-                                  'ukvo0oc3' /* Email Address */,
+                                  'vcq6s561' /* Email Address */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
@@ -192,7 +191,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                 print('Button pressed ...');
                               },
                               text: FFLocalizations.of(context).getText(
-                                'g71bp7tt' /* Reset Password */,
+                                '32fa9v6v' /* Reset Password */,
                               ),
                               options: FFButtonOptions(
                                 width: 370.0,
@@ -224,7 +223,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                     0.0, 4.0, 0.0, 4.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'lj4bhj7y' /* Remember your password?  */,
+                                    'nl7f9p5f' /* Remember your password?  */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -249,7 +248,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                                   },
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'djnu8kp5' /* Sign In */,
+                                      'zzmwbqpx' /* Sign In */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium

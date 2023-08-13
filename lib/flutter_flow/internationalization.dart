@@ -167,195 +167,195 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'admin@pacemaker.ai',
       'de': '',
     },
-    'bnvb06wn': {
+    'bg5sr5sb': {
       'en': 'Product Name',
       'de': '',
     },
-    'pv0r6ci9': {
+    'rz83drjp': {
       'en': 'Data Type',
       'de': '',
     },
-    'jw8be9ba': {
+    '58jruaei': {
       'en': 'Source/Origin',
       'de': '',
     },
-    'zq233egm': {
+    'lf2gig2y': {
       'en': 'Number of Entries',
       'de': '',
     },
-    '91e0ikwr': {
+    'xfg0eahp': {
       'en': 'Last Update',
       'de': '',
     },
-    'eawe34wj': {
+    'd3zx9dg1': {
       'en': 'Status',
       'de': '',
     },
-    'yu2x6eyf': {
+    'bohoe7ly': {
       'en': 'WTI Oil',
       'de': '',
     },
-    'q2p6to9y': {
+    'jykg2gso': {
       'en': 'Finance',
       'de': '',
     },
-    'qp848f9z': {
+    'xaxjegf5': {
       'en': 'alphavantage',
       'de': '',
     },
-    'd69zmqx7': {
+    'v12enzbh': {
       'en': '42',
       'de': '',
     },
-    'zyaxgcwi': {
+    '8uj00bna': {
       'en': '17.08.2023',
       'de': '',
     },
-    'u7hfg3wq': {
+    'bl4meg09': {
       'en': 'Updated',
       'de': '',
     },
-    'mxuoi1is': {
+    '62a46d51': {
       'en': 'Brent Oil',
       'de': '',
     },
-    'iazhftxa': {
+    'sy20xs8t': {
       'en': 'Finance',
       'de': '',
     },
-    '88q0jodk': {
+    'a5ptwr4k': {
       'en': 'alphavantage',
       'de': '',
     },
-    'vxrkaj0p': {
+    '2td9azft': {
       'en': '39',
       'de': '',
     },
-    'kgcnfq9r': {
+    'hoz5hmjy': {
       'en': '17.08.2023',
       'de': '',
     },
-    'set7sa7e': {
+    '6dv22oov': {
       'en': 'Updated',
       'de': '',
     },
-    'n69smgq4': {
-      'en': 'WTI Oil',
+    'hn0mrbp5': {
+      'en': 'Wheat',
       'de': '',
     },
-    '5jx2y51j': {
+    'oyp6fhk7': {
       'en': 'Finance',
       'de': '',
     },
-    'k2wh633l': {
+    'mfta7mdm': {
       'en': 'alphavantage',
       'de': '',
     },
-    'ga5xi6is': {
-      'en': '42',
+    'amo2w1bu': {
+      'en': '2',
       'de': '',
     },
-    'wwr0vqtm': {
+    'vxowgq6f': {
       'en': '17.08.2023',
       'de': '',
     },
-    '47xt083g': {
+    'n1tkogne': {
+      'en': 'Raw',
+      'de': '',
+    },
+    'vsexr2wa': {
+      'en': 'Aluminium',
+      'de': '',
+    },
+    'za5mnmah': {
+      'en': 'Finance',
+      'de': '',
+    },
+    'ze5syf7w': {
+      'en': 'alphavantage',
+      'de': '',
+    },
+    'w46g14vp': {
+      'en': '51',
+      'de': '',
+    },
+    'elg5kela': {
+      'en': '17.08.2023',
+      'de': '',
+    },
+    '0q3sclj7': {
       'en': 'Updated',
       'de': '',
     },
-    'l00fnsgv': {
-      'en': 'WTI Oil',
+    'eibhgast': {
+      'en': 'Natural Gas',
       'de': '',
     },
-    'cchf5cw8': {
+    'wnarbqr0': {
       'en': 'Finance',
       'de': '',
     },
-    'rfauslh7': {
+    'jyw4wu26': {
       'en': 'alphavantage',
       'de': '',
     },
-    'dz4d4gxb': {
-      'en': '42',
+    'jz7ri6ci': {
+      'en': '25',
       'de': '',
     },
-    'du9jh0hg': {
+    'psijjydm': {
       'en': '17.08.2023',
       'de': '',
     },
-    'uh9f6hd5': {
+    '2ph7qqx5': {
       'en': 'Updated',
       'de': '',
     },
-    '6msp9c6n': {
-      'en': 'WTI Oil',
+    'lrbr0iu4': {
+      'en': 'Copper',
       'de': '',
     },
-    'fhfottja': {
+    'i0boya7w': {
       'en': 'Finance',
       'de': '',
     },
-    'logleoew': {
+    'awmz4eko': {
       'en': 'alphavantage',
       'de': '',
     },
-    'us6dw4qd': {
-      'en': '42',
+    'nig8p0jm': {
+      'en': '2',
       'de': '',
     },
-    'an02z02t': {
+    'eeo4jiwe': {
       'en': '17.08.2023',
       'de': '',
     },
-    'ou3hj173': {
-      'en': 'Updated',
+    'gmhdapn1': {
+      'en': 'Raw',
       'de': '',
     },
-    '0h9i9t7d': {
-      'en': 'WTI Oil',
+    'r8r17mtp': {
+      'en': 'Steel',
       'de': '',
     },
-    '24ds0t1k': {
+    'i89w5auq': {
       'en': 'Finance',
       'de': '',
     },
-    'pp7xtzhn': {
+    '5vjrm23w': {
       'en': 'alphavantage',
       'de': '',
     },
-    'q0nwn91v': {
-      'en': '42',
+    '0t7xlcnz': {
+      'en': '48',
       'de': '',
     },
-    '815gvw5j': {
+    'edzdbqny': {
       'en': '17.08.2023',
       'de': '',
     },
-    'qqjx5epd': {
-      'en': 'Updated',
-      'de': '',
-    },
-    '0plfg5sq': {
-      'en': 'WTI Oil',
-      'de': '',
-    },
-    'du3gi9hp': {
-      'en': 'Finance',
-      'de': '',
-    },
-    'x2snfe1r': {
-      'en': 'alphavantage',
-      'de': '',
-    },
-    'l8ciwqxd': {
-      'en': '42',
-      'de': '',
-    },
-    '00y7i2ne': {
-      'en': '17.08.2023',
-      'de': '',
-    },
-    'w9edrnl1': {
+    '08qhyaar': {
       'en': 'Updated',
       'de': '',
     },
@@ -432,6 +432,402 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           ' DefaultEndpointsProtocoll=https;AccountName=adastorageaccount;AccountKey=1NYMMTJ8AJJF74JDJ72NNC82LA91AKF0A==',
       'de': '',
     },
+    '6t34nn1e': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'beh6zxm1': {
+      'en': 'Date',
+      'de': '',
+    },
+    '6q3yl0xf': {
+      'en': 'Description',
+      'de': '',
+    },
+    '2izudime': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'b7pnxfpi': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '1691bwr3': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '3dn1wnk3': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'ycmtnrwe': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '89m8e5f5': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'gbzvi35h': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'y0duila7': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'srxqzm65': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'uvqc9py9': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'glyz6075': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '8pcd6zzp': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'ih5zdff0': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'xwazyc8k': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'poxcm99j': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'qyda5r0q': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'snimklt7': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '3ec0fbde': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'woqkeuuk': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'q219r8q8': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'j226ttyd': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'j600rpw3': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'bc6x1h4o': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '2x3odsmz': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'rjrr7h3r': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'qsfs20ys': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'adj4yqiw': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'rziqmqv6': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'vzil12hm': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'cbhtj2qy': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'z5s85o9a': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'h22f2hgv': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'q0s1c4sr': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'lsw73gcb': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'vy21yibs': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'isrzy6y0': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'x6mjol4l': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'j45amtvs': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '5mlyfyg4': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'lrbjjbaz': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'fzzmgl70': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'u0r680ym': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'f52cbfux': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'r0530msc': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'hpgtyxo8': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '7npjg10o': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'enja7oni': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'rcrufgdz': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'x01oz1g4': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'yvi07ao4': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'durkguow': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'pxixri4l': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '4l6jj1w6': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '90w6ikrz': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '26uchbse': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'lb7ovif6': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'mmxqo9rx': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'u1h6zqxh': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'ali0lbva': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'vdme5xm8': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'firyb2l3': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'na1gs69u': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'fmsh37e7': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'zac8gquc': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '36tfey3m': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'hvzfx9w1': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '3nin0ke8': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'wzvclffc': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'olbx5mxw': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'fj43pg5y': {
+      'en': 'Feature',
+      'de': '',
+    },
+    't34wpa5o': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'e5dz7nkg': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'yrfmpuy3': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '4ibnufqr': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'a3tfjbuu': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'vpd3uoxd': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'bxcv0ioy': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'wseyyrv0': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '17s1vrti': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '5uv83gxo': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'ep3g2kmo': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'gr41p437': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '0stthm6e': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'deovp6e7': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'hwps97fe': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'n5xb255d': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'a2sley5a': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'zwez4u4w': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'qqaqpx0n': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'jsy5v7o0': {
+      'en': 'Feature',
+      'de': '',
+    },
+    '9acmgy2i': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'twah12f4': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'ayibpy1n': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'ly3r4b4h': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'rhbkxsfd': {
+      'en': 'Feature',
+      'de': '',
+    },
+    'qe8tbp9a': {
+      'en': 'Feature',
+      'de': '',
+    },
     'puja4ek2': {
       'en': 'Home',
       'de': '',
@@ -439,59 +835,225 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // AuthenticateSolo1
   {
-    'vymklxe7': {
+    'pkzn84mn': {
       'en': 'Login',
       'de': '',
     },
-    'xzjihr7v': {
+    'lhojmaln': {
       'en': 'Email Address',
       'de': '',
     },
-    'cfco8cq6': {
+    'efczczp3': {
       'en': 'Password',
       'de': '',
     },
-    'tstxq2u0': {
+    '38dl1bcs': {
       'en': 'Password',
       'de': '',
     },
-    'j3zrsklq': {
+    '261qkn24': {
       'en': 'Save Credentials ',
       'de': '',
     },
-    'pdnqp7u9': {
+    '39uh8s2k': {
       'en': 'Login',
       'de': '',
     },
-    'bi1xolfq': {
+    'tyd7scmz': {
       'en': 'Forgot Password?',
       'de': '',
     },
   },
   // forgotPassword
   {
-    'qzopzqgt': {
+    'liobs1ph': {
       'en': 'Forgot Password',
       'de': '',
     },
-    'r4radlgi': {
+    '7s0f1p4y': {
       'en': 'Enter your email address to reset your password.',
       'de': '',
     },
-    'ukvo0oc3': {
+    'vcq6s561': {
       'en': 'Email Address',
       'de': '',
     },
-    'g71bp7tt': {
+    '32fa9v6v': {
       'en': 'Reset Password',
       'de': '',
     },
-    'lj4bhj7y': {
+    'nl7f9p5f': {
       'en': 'Remember your password? ',
       'de': '',
     },
-    'djnu8kp5': {
+    'zzmwbqpx': {
       'en': 'Sign In',
+      'de': '',
+    },
+  },
+  // Dropdown05Notifications
+  {
+    '3fdgdpjg': {
+      'en': 'Notifications',
+      'de': '',
+    },
+    '5da98rjo': {
+      'en': 'New',
+      'de': '',
+    },
+    '0cr4v83c': {
+      'en': 'New Data Update',
+      'de': '',
+    },
+    '9k4k42nu': {
+      'en': 'WTI Oil was updated',
+      'de': '',
+    },
+    'zuy3p0er': {
+      'en': '3m ago',
+      'de': '',
+    },
+    'lmz42i75': {
+      'en': 'New Data Update',
+      'de': '',
+    },
+    'cg6a3155': {
+      'en': 'Extreme weather events was updated',
+      'de': '',
+    },
+    'mr930pej': {
+      'en': '3m ago',
+      'de': '',
+    },
+    'jwqv58gd': {
+      'en': 'New Data Update',
+      'de': '',
+    },
+    'w4bbxfzb': {
+      'en': 'Adidas Stock was updated',
+      'de': '',
+    },
+    'tff3my44': {
+      'en': '3m ago',
+      'de': '',
+    },
+    'pyhrn1g8': {
+      'en': 'All',
+      'de': '',
+    },
+    '9lpz6zap': {
+      'en': 'New Product View',
+      'de': '',
+    },
+    'yhifu6aj': {
+      'en': 'Sally Mandrus, viewed your product',
+      'de': '',
+    },
+    '0d03r9tz': {
+      'en': '3m ago',
+      'de': '',
+    },
+    'smo1cucd': {
+      'en': 'New Product View',
+      'de': '',
+    },
+    'yqw8dxt4': {
+      'en': 'Sally Mandrus, viewed your product',
+      'de': '',
+    },
+    'u95gmu8c': {
+      'en': '3m ago',
+      'de': '',
+    },
+    'rp8g2fr7': {
+      'en': 'New Product View',
+      'de': '',
+    },
+    'g0xyib49': {
+      'en': 'Sally Mandrus, viewed your product',
+      'de': '',
+    },
+    'z96osjde': {
+      'en': '3m ago',
+      'de': '',
+    },
+    '33wv0389': {
+      'en': 'New Product View',
+      'de': '',
+    },
+    '1h9y0ll8': {
+      'en': 'Sally Mandrus, viewed your product',
+      'de': '',
+    },
+    '1p9ixhoc': {
+      'en': '3m ago',
+      'de': '',
+    },
+    'vms3ncn5': {
+      'en': 'New Product View',
+      'de': '',
+    },
+    'lst83mj6': {
+      'en': 'Sally Mandrus, viewed your product',
+      'de': '',
+    },
+    'c8tbdppc': {
+      'en': '3m ago',
+      'de': '',
+    },
+  },
+  // SideNav02
+  {
+    'z5u1qas6': {
+      'en': 'Dashboard',
+      'de': '',
+    },
+    '2we5jmrc': {
+      'en': 'Top Level Category',
+      'de': '',
+    },
+    'fee71znv': {
+      'en': 'Idea?',
+      'de': '',
+    },
+    'cjcgu5qr': {
+      'en': 'Settings',
+      'de': '',
+    },
+    'sxnc57d9': {
+      'en': 'Notifications',
+      'de': '',
+    },
+    'lw2pawn8': {
+      'en': '12',
+      'de': '',
+    },
+    'oews3mco': {
+      'en': 'User',
+      'de': '',
+    },
+    'w9o4lg77': {
+      'en': 'Explore',
+      'de': '',
+    },
+    'wwuvsljo': {
+      'en': 'Light Mode',
+      'de': '',
+    },
+    'lrhtsgul': {
+      'en': 'Dark Mode',
+      'de': '',
+    },
+    'wy6cplds': {
+      'en': 'Light Mode',
+      'de': '',
+    },
+    'o8mrpdt7': {
+      'en': 'Dark Mode',
+      'de': '',
+    },
+    '9zi2yt2z': {
+      'en': 'Logout ',
       'de': '',
     },
   },
