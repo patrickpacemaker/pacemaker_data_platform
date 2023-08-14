@@ -1,3 +1,5 @@
+import 'package:pacemaker_data_platform/components/dropdown05_notifications_widget.dart';
+
 import '/components/side_nav02_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -79,26 +81,34 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 90.0, 0.0),
-                              child: SvgPicture.asset(
-                                'assets/images/pacemaker_logo.svg',
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                height: MediaQuery.of(context).size.height * 0.05,
-                                fit: BoxFit.fitWidth,
+                              child: InkWell(
+                                onTap: () async {
+                                  context.pushNamed('dashboard');
+                                },
+                                child: Container(
+                                  child: SvgPicture.asset(
+                                    'assets/images/pacemaker_logo.svg',
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.2,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.05,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
                               ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                 "admin@pacemaker.ai",
+                                "admin@pacemaker.ai",
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w300,
-                                      color: FlutterFlowTheme.of(context).primaryText
-                                      
-                                    ),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w300,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText),
                               ),
                             ),
                           ],
@@ -126,7 +136,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                               size: 30.0,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              showDropdownNotificationDialog(context);
                             },
                           ),
                           Container(
@@ -157,7 +167,6 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                     
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.15,
@@ -184,67 +193,9 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 200),
-                                      curve: Curves.easeInOut,
-                                      width: double.infinity,
-                                      height: 44.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF675AFF),
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.space_dashboard_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
-                                              size: 24.0,
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  "Dashboard",
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
                                     child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.pushNamed('Category');
+                                        context.pushNamed('dashboard');
                                       },
                                       child: AnimatedContainer(
                                         duration: Duration(milliseconds: 200),
@@ -268,7 +219,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Icon(
-                                                Icons.category_outlined,
+                                                Icons.space_dashboard_outlined,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
@@ -279,13 +230,77 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
-                                                  child:
-                                                      Text("Top Level Category",
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                          )),
+                                                  child: Text(
+                                                    "Dashboard",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed('category');
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFF675AFF),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.space_dashboard_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBtnText,
+                                                size: 24.0,
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    "Top Level Category",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -420,7 +435,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                       .fromSTEB(
                                                           8.0, 4.0, 8.0, 4.0),
                                                   child: Text(
-                                                    "12",
+                                                    "3",
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -442,54 +457,59 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 200),
-                                      curve: Curves.easeInOut,
-                                      width: double.infinity,
-                                      height: 44.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.person_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              size: 24.0,
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  "User",
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed('user');
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.person_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    "User",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -611,12 +631,14 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                         .alternate,
                                                   ),
                                                 ),
-                                                child: Text(
-                                                  "Light Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Light Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -647,12 +669,14 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                       BorderRadius.circular(
                                                           25.0),
                                                 ),
-                                                child: Text(
-                                                  "Dark Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Dark Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -706,12 +730,14 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                       BorderRadius.circular(
                                                           25.0),
                                                 ),
-                                                child: Text(
-                                                  "Light Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Light Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -747,12 +773,14 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                         .alternate,
                                                   ),
                                                 ),
-                                                child: Text(
-                                                  "Dark Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Dark Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -824,52 +852,317 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.15,
                                   height:
-                                      MediaQuery.sizeOf(context).height * 0.15,
+                                      MediaQuery.sizeOf(context).height * 0.17,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/nick-chong-N__BnvQ_w18-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Finance & Banking",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/christian-wiediger-ZiAwa7FV3OQ-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Economics",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/nick-chong-N__BnvQ_w18-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Demographics",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/karsten-wurth-0w-uTa0Xz7w-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Environment",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/dan-gold-4_jhDO54BYg-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Health",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -878,54 +1171,329 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/md-duran-1VqHRwxcCCw-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Education",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/kenny-eliason-JXg7Yq5b1wE-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Crime and Public Safety",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/david-martin-ibtetA_2A64-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Infrastructure & Transportation",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/nick-chong-N__BnvQ_w18-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Geospatial Data",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/debashis-rc-biswas-xAWb6qDCXDU-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Culture & Society",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -934,54 +1502,329 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/hans-reniers-lQGJCMY5qcM-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Science & Technology",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/randy-fath-dDc0vuVH_LU-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Agriculture & Food",
+                                          style:FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/federico-beccari-ahi73ZN5P0Y-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Energy",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/noaa-5YryiYcFvtA-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Weather & Climate",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/tobias-CyX3ZAti5DA-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Urban Planning & Development",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -990,54 +1833,329 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/ian-taylor-jOqJbvo1P9g-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "International Relations & Trade",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/absolutvision-WYd_PkCa1BY-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Media & Communications",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/ali-maah-zyOeEm4NsPM-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Tourism & Travel",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                            InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/muyuan-ma--xHZBzv4Naw-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Sports & Recreation",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.15,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(20.0),
+                             InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('subCategory');
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.15,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.17,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.145,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20.0),
+                                        ),
+                                        child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            child: Image.asset(
+                                              "assets/images/hester-qiang-bSrqpoOz7Ec-unsplash.jpg",
+                                              fit: BoxFit.fill,
+                                            )),
+                                      ),
+                                      Container(
+                                         width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.15,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.025,
+                                        child: Center(
+                                            child: Text(
+                                          "Arts & Culture",
+                                          style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                        )),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -1052,6 +2170,20 @@ class _CategoryWidgetState extends State<CategoryWidget> {
           ),
         ),
       ),
+    );
+  }
+
+  void showDropdownNotificationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          content: Dropdown05NotificationsWidget(),
+        );
+      },
     );
   }
 }

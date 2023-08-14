@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pacemaker_data_platform/pages/profile/profile_widget.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../auth/base_auth_user_provider.dart';
@@ -92,6 +93,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => HomePageWidget(),
+        ),
+          FFRoute(
+          name: 'User',
+          path: '/user',
+          builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: 'Dashboard',

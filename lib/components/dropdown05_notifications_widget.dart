@@ -81,9 +81,7 @@ class _Dropdown05NotificationsWidgetState
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        FFLocalizations.of(context).getText(
-                          '3fdgdpjg' /* Notifications */,
-                        ),
+                        "Notifications",
                         style: FlutterFlowTheme.of(context).titleLarge,
                       ),
                     ),
@@ -132,14 +130,10 @@ class _Dropdown05NotificationsWidgetState
                             EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 0.0, 8.0),
                         tabs: [
                           Tab(
-                            text: FFLocalizations.of(context).getText(
-                              '5da98rjo' /* New */,
-                            ),
+                            text: "New",
                           ),
                           Tab(
-                            text: FFLocalizations.of(context).getText(
-                              'pyhrn1g8' /* All */,
-                            ),
+                            text: "All",
                           ),
                         ],
                         controller: _model.tabBarController,
@@ -229,11 +223,7 @@ class _Dropdown05NotificationsWidgetState
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '0cr4v83c' /* New Data Update */,
-                                                      ),
+                                                      "New data updated",
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -249,11 +239,7 @@ class _Dropdown05NotificationsWidgetState
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '9k4k42nu' /* WTI Oil was updated */,
-                                                          ),
+                                                         "WTI oil data was updated",
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelMedium,
@@ -265,10 +251,7 @@ class _Dropdown05NotificationsWidgetState
                                               ),
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'zuy3p0er' /* 3m ago */,
-                                              ),
+                                             "3m ago",
                                               textAlign: TextAlign.end,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -334,11 +317,7 @@ class _Dropdown05NotificationsWidgetState
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'lmz42i75' /* New Data Update */,
-                                                      ),
+                                                     "New data update",
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -354,11 +333,7 @@ class _Dropdown05NotificationsWidgetState
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'cg6a3155' /* Extreme weather events was upd... */,
-                                                          ),
+                                                         "Extreme weather events was updated",
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelMedium,
@@ -370,10 +345,7 @@ class _Dropdown05NotificationsWidgetState
                                               ),
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'mr930pej' /* 3m ago */,
-                                              ),
+                                             "12m ago",
                                               textAlign: TextAlign.end,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -433,11 +405,7 @@ class _Dropdown05NotificationsWidgetState
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'jwqv58gd' /* New Data Update */,
-                                                      ),
+                                                    "New data update",
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -453,11 +421,7 @@ class _Dropdown05NotificationsWidgetState
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'w4bbxfzb' /* Adidas Stock was updated */,
-                                                          ),
+                                                         "Adidas stock was updated",
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelMedium,
@@ -469,10 +433,7 @@ class _Dropdown05NotificationsWidgetState
                                               ),
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'tff3my44' /* 3m ago */,
-                                              ),
+                                              "1h ago",
                                               textAlign: TextAlign.end,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -566,11 +527,7 @@ class _Dropdown05NotificationsWidgetState
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '9lpz6zap' /* New Product View */,
-                                                      ),
+                                                     "New data update",
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -586,11 +543,7 @@ class _Dropdown05NotificationsWidgetState
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'yhifu6aj' /* Sally Mandrus, viewed your pro... */,
-                                                          ),
+                                                         "Copper data updated",
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .labelMedium,
@@ -602,10 +555,7 @@ class _Dropdown05NotificationsWidgetState
                                               ),
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '0d03r9tz' /* 3m ago */,
-                                              ),
+                                             "5d ago",
                                               textAlign: TextAlign.end,
                                               style:
                                                   FlutterFlowTheme.of(context)

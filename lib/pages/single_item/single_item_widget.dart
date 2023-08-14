@@ -1,3 +1,5 @@
+import 'package:pacemaker_data_platform/components/dropdown05_notifications_widget.dart';
+
 import '/components/side_nav02_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -80,11 +82,19 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                           Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 90.0, 0.0),
-                              child: SvgPicture.asset(
-                                'assets/images/pacemaker_logo.svg',
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                height: MediaQuery.of(context).size.height * 0.05,
-                                fit: BoxFit.fitWidth,
+                              child: InkWell(
+                                onTap: () async {
+                                  context.pushNamed('dashboard');
+                                },
+                                child: Container(
+                                  child: SvgPicture.asset(
+                                    'assets/images/pacemaker_logo.svg',
+                                    width: MediaQuery.of(context).size.width * 0.2,
+                                    height:
+                                        MediaQuery.of(context).size.height * 0.05,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
                               ),
                             ),
                             Padding(
@@ -127,7 +137,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                               size: 30.0,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                             showDropdownNotificationDialog(context);
                             },
                           ),
                           Container(
@@ -420,7 +430,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .fromSTEB(
                                                           8.0, 4.0, 8.0, 4.0),
                                                   child: Text(
-                                                    "12",
+                                                    "3",
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -442,54 +452,58 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 200),
-                                      curve: Curves.easeInOut,
-                                      width: double.infinity,
-                                      height: 44.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.person_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              size: 24.0,
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  "User",
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
+                                    child: InkWell(
+                                               onTap: () async {
+              context.pushNamed('user');},
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.person_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    "User",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -611,12 +625,14 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                         .alternate,
                                                   ),
                                                 ),
-                                                child: Text(
-                                                  "Light Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Light Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -647,12 +663,14 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       BorderRadius.circular(
                                                           25.0),
                                                 ),
-                                                child: Text(
-                                                  "Dark Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Dark Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -706,12 +724,14 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       BorderRadius.circular(
                                                           25.0),
                                                 ),
-                                                child: Text(
-                                                  "Light Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Light Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -747,12 +767,14 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                         .alternate,
                                                   ),
                                                 ),
-                                                child: Text(
-                                                  "Dark Mode",
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
+                                                child: Center(
+                                                  child: Text(
+                                                    "Dark Mode",
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -831,7 +853,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                   ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryBtnText,
+                                        .primaryBackground,
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
                                   child: SingleChildScrollView(
@@ -846,8 +868,17 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: Text(
                                            "WTI Oil",
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineLarge,
+                                            style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                
                                           ),
                                         ),
                                         Padding(
@@ -873,7 +904,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .backgroundComponents,
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -903,7 +934,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .backgroundComponents,
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -933,7 +964,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .backgroundComponents,
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -963,7 +994,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .backgroundComponents,
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -993,7 +1024,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .backgroundComponents,
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -1023,7 +1054,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .backgroundComponents,
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -1053,7 +1084,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                                     'Poppins',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .backgroundComponents,
+                                                                    .primaryText,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
@@ -4667,4 +4698,17 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
       ),
     );
   }
+  void showDropdownNotificationDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        content: Dropdown05NotificationsWidget(),
+      );
+    },
+  );
+}
 }

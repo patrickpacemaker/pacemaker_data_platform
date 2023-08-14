@@ -1,3 +1,6 @@
+import 'package:pacemaker_data_platform/authenticate_solo1/authenticate_solo1_model.dart';
+import 'package:pacemaker_data_platform/authenticate_solo1/authenticate_solo1_widget.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -50,41 +53,18 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.network(
-                'https://images.unsplash.com/photo-1525824236856-8c0a31dfe3be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8d2F0ZXJmYWxsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-              ).image,
-            )),
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: Image.network(
+                    'https://images.unsplash.com/photo-1525824236856-8c0a31dfe3be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8d2F0ZXJmYWxsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+                  ).image,
+                )),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: double.infinity,
-                    height: 140.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(16.0),
-                        bottomRight: Radius.circular(16.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
-                      ),
-                    ),
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: SvgPicture.asset(
-                        'assets/images/pacemaker_logo.svg',
-                        width: 300.0,
-                        height: 200.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
@@ -94,15 +74,34 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'liobs1ph' /* Forgot Password */,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 90.0, 0.0),
+                            child: InkWell(
+                              onTap: ()  {
+                                Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => AuthenticateSolo1Widget()));
+                              },
+                              child: Container(
+                                child: SvgPicture.asset(
+                                  'assets/images/pacemaker_logo.svg',
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.2,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.05,
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ),
                             ),
+                          ),
+                          SizedBox(height: 50,),
+                          Text(
+                            "Forgot password?",
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  color: Color(0xFF12151C),
+                                  color: Colors.white,
                                   fontSize: 32.0,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -111,14 +110,12 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 24.0),
                             child: Text(
-                              FFLocalizations.of(context).getText(
-                                '7s0f1p4y' /* Enter your email address to re... */,
-                              ),
+                              "Enter your email address to change your password",
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: Color(0xFF5A5C60),
+                                    color: Colors.white,
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -131,14 +128,12 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               controller: _model.textController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: FFLocalizations.of(context).getText(
-                                  'vcq6s561' /* Email Address */,
-                                ),
+                                labelText: "email address",
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: Color(0xFF12151C),
+                                      color: Colors.white,
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -190,9 +185,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               onPressed: () {
                                 print('Button pressed ...');
                               },
-                              text: FFLocalizations.of(context).getText(
-                                '32fa9v6v' /* Reset Password */,
-                              ),
+                              text: "Reset password",
                               options: FFButtonOptions(
                                 width: 370.0,
                                 height: 44.0,
