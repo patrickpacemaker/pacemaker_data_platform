@@ -816,7 +816,7 @@ Future<String> uploadImage(html.File file) async {
                                     height: 12.0,
                                     thickness: 2.0,
                                     color:
-                                        FlutterFlowTheme.of(context).alternate,
+                                        FlutterFlowTheme.of(context).primaryText,
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(

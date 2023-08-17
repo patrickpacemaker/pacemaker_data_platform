@@ -791,7 +791,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                       height: 12.0,
                                       thickness: 2.0,
                                       color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                          .primaryText,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(

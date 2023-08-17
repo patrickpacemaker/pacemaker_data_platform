@@ -784,7 +784,7 @@ class _SubCategoryWidgetState extends State<SubCategoryWidget> {
                                       height: 12.0,
                                       thickness: 2.0,
                                       color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                          .primaryText,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(

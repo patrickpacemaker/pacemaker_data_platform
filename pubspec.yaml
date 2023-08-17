@@ -82,6 +82,13 @@ dependencies:
   path: ^1.8.3
   firebase_storage_web: ^3.6.2
   mime: ^1.0.4
+  fl_chart: ^0.63.0
+  syncfusion_flutter_charts: ^22.2.8
+  syncfusion_localizations: ^22.2.8
+  syncfusion_flutter_treemap: ^22.2.8
+  syncfusion_flutter_datagrid: ^22.2.8
+  syncfusion_flutter_sliders: ^22.2.8
+  syncfusion_flutter_gauges: ^22.2.8
 
 dev_dependencies:
 
