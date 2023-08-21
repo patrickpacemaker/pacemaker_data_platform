@@ -1,4 +1,8 @@
+import 'package:collection/collection.dart';
 import 'package:pacemaker_data_platform/components/dropdown05_notifications_widget.dart';
+import 'package:pacemaker_data_platform/model/orderinfo_datagridsource.dart';
+import 'package:pacemaker_data_platform/model/product_datagridsource.dart';
+import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 import '/components/side_nav02_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -13,25 +17,259 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'single_item_model.dart';
 export 'single_item_model.dart';
+import 'package:pacemaker_data_platform/model/sample_view.dart';
+import 'package:pacemaker_data_platform/model/model.dart';
 
-class SingleItemWidget extends StatefulWidget {
+class SingleItemWidget extends SampleView {
   const SingleItemWidget({Key? key}) : super(key: key);
 
   @override
   _SingleItemWidgetState createState() => _SingleItemWidgetState();
 }
 
-class _SingleItemWidgetState extends State<SingleItemWidget> {
+class _SingleItemWidgetState extends SampleViewState {
   late SingleItemModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  /// DataGridSource required for SfDataGrid to obtain the row data.
+  late ProductDataGridSource source;
+
+  /// Collection of GridColumn and it required for SfDataGrid
+  late List<GridColumn> columns;
+
+  late OrderInfoDataGridSource listDataGridSource;
+
+  bool isLandscapeInMobileView = false;
+
+  late bool isWebOrDesktop;
+
+  List<GridColumn> getColumns() {
+    List<GridColumn> columns;
+    columns = isWebOrDesktop
+        ? <GridColumn>[
+            GridColumn(
+              width: (isWebOrDesktop && model.isMobileResolution)
+                  ? MediaQuery.of(context).size.width * 0.2
+                  : double.nan,
+              columnName: 'id',
+              label: Container(
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.centerRight,
+                child: Text(
+                  'Feature',
+                  overflow: TextOverflow.ellipsis,
+                  style: FlutterFlowTheme.of(context).bodySmall.override(
+                        fontFamily: 'Poppins',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                      ),
+                ),
+              ),
+            ),
+            GridColumn(
+              width: (isWebOrDesktop && model.isMobileResolution)
+                  ? MediaQuery.of(context).size.width * 0.2
+                  : double.nan,
+              columnName: 'customerId',
+              label: Container(
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.centerRight,
+                child: Text('Data type',
+                    overflow: TextOverflow.ellipsis,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                        )),
+              ),
+            ),
+            GridColumn(
+              width: (isWebOrDesktop && model.isMobileResolution)
+                  ? MediaQuery.of(context).size.width * 0.2
+                  : double.nan,
+              columnName: 'name',
+              label: Container(
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.centerLeft,
+                child: Text('Description',
+                    overflow: TextOverflow.ellipsis,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                        )),
+              ),
+            ),
+          ]
+        : <GridColumn>[
+            GridColumn(
+                columnName: 'id',
+                label: Container(
+                  padding: const EdgeInsets.all(8),
+                  alignment: Alignment.centerRight,
+                  child: Text('Feature',
+                      overflow: TextOverflow.ellipsis,
+                      style: FlutterFlowTheme.of(context).bodySmall.override(
+                            fontFamily: 'Poppins',
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          )),
+                )),
+            GridColumn(
+              columnName: 'customerId',
+              columnWidthMode: isLandscapeInMobileView
+                  ? ColumnWidthMode.fill
+                  : ColumnWidthMode.none,
+              label: Container(
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.centerRight,
+                child: Text('Data type',
+                    overflow: TextOverflow.ellipsis,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                        )),
+              ),
+            ),
+            GridColumn(
+              columnName: 'name',
+              label: Container(
+                padding: const EdgeInsets.all(8),
+                alignment: Alignment.centerLeft,
+                child: Text('Description',
+                    overflow: TextOverflow.ellipsis,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                        )),
+              ),
+            ),
+          ];
+    return columns;
+  }
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => SingleItemModel());
 
+    isWebOrDesktop = model.isWeb || model.isDesktop;
+    listDataGridSource = OrderInfoDataGridSource(context,
+        isWebOrDesktop: isWebOrDesktop, orderDataCount: 42);
+
+    columns = getColumnsnew();
+    source = ProductDataGridSource('Custom Header', productDataCount: 42);
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  GlobalKey key = GlobalKey();
+
+  Widget buildMenuItem(GridColumn column, String value) {
+    return GestureDetector(
+        onTap: () {
+          setState(() {
+            processShowMenuFunctions(value, column);
+          });
+          Navigator.pop(context);
+        },
+        child: SizedBox(width: 130, height: 30, child: Text(value)));
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    isLandscapeInMobileView = !isWebOrDesktop &&
+        MediaQuery.of(context).orientation == Orientation.landscape;
+  }
+
+  List<PopupMenuItem<String>> buildMenuItems(GridColumn column) {
+    List<PopupMenuItem<String>> menuItems;
+    final SortColumnDetails? sortColumn = source.sortedColumns.firstWhereOrNull(
+        (SortColumnDetails sortColumn) => sortColumn.name == column.columnName);
+
+    bool isEnabled(DataGridSortDirection direction) {
+      if (sortColumn == null) {
+        return true;
+      }
+      return sortColumn.sortDirection == direction;
+    }
+
+    menuItems = <PopupMenuItem<String>>[
+      PopupMenuItem<String>(
+        value: showMenuItems[0],
+        enabled: isEnabled(DataGridSortDirection.descending),
+        child: buildMenuItem(column, showMenuItems[0]),
+      ),
+      PopupMenuItem<String>(
+        value: showMenuItems[1],
+        enabled: isEnabled(DataGridSortDirection.ascending),
+        child: buildMenuItem(column, showMenuItems[1]),
+      ),
+    ];
+
+    if (sortColumn != null) {
+      menuItems.add(PopupMenuItem<String>(
+        value: showMenuItems[2],
+        enabled: source.sortedColumns.isNotEmpty,
+        child: buildMenuItem(column, showMenuItems[2]),
+      ));
+    }
+
+    return menuItems;
+  }
+
+  List<String> showMenuItems = <String>[
+    'Ascending',
+    'Descending',
+    'Clear Sorting'
+  ];
+
+  void processShowMenuFunctions(String value, GridColumn gridColumn) {
+    switch (value) {
+      case 'Ascending':
+      case 'Descending':
+        if (source.sortedColumns.isNotEmpty) {
+          source.sortedColumns.clear();
+        }
+        source.sortedColumns.add(SortColumnDetails(
+            name: gridColumn.columnName,
+            sortDirection: value == 'Ascending'
+                ? DataGridSortDirection.ascending
+                : DataGridSortDirection.descending));
+        source.sort();
+        break;
+      case 'Clear Sorting':
+        if (source.sortedColumns.isNotEmpty) {
+          source.sortedColumns.clear();
+          source.sort();
+        }
+        break;
+    }
+  }
+
+  Widget buildHeaderCell(Widget headerChild) {
+    return Row(
+      children: <Widget>[
+        Flexible(child: headerChild),
+        const Icon(
+          Icons.keyboard_arrow_down,
+          size: 25,
+          color: Colors.grey,
+        )
+      ],
+    );
+  }
+
+  void buildShowMenu(BuildContext context, DataGridCellTapDetails details) {
+    const double rowHeight = 56.0;
+    final RenderBox renderBox =
+        Overlay.of(context).context.findRenderObject()! as RenderBox;
+    final Offset newPosition = renderBox.globalToLocal(details.globalPosition);
+    final double dx = newPosition.dx - details.localPosition.dx;
+    final double dy = newPosition.dy - details.localPosition.dy + rowHeight;
+
+    showMenu(
+        context: context,
+        position: RelativeRect.fromLTRB(dx, dy, dx + 200, dy + 200),
+        items: buildMenuItems(details.column));
   }
 
   @override
@@ -79,7 +317,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                          Padding(
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 90.0, 0.0),
                               child: InkWell(
@@ -89,9 +327,10 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                 child: Container(
                                   child: SvgPicture.asset(
                                     'assets/images/pacemaker_logo.svg',
-                                    width: MediaQuery.of(context).size.width * 0.2,
-                                    height:
-                                        MediaQuery.of(context).size.height * 0.05,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.2,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.05,
                                     fit: BoxFit.fitWidth,
                                   ),
                                 ),
@@ -101,15 +340,14 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 25.0),
                               child: Text(
-                                 "admin@pacemaker.ai",
+                                "admin@pacemaker.ai",
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w300,
-                                      color: FlutterFlowTheme.of(context).primaryText
-                                      
-                                    ),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w300,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText),
                               ),
                             ),
                           ],
@@ -137,7 +375,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                               size: 30.0,
                             ),
                             onPressed: () {
-                             showDropdownNotificationDialog(context);
+                              showDropdownNotificationDialog(context);
                             },
                           ),
                           Container(
@@ -194,53 +432,61 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
-                                    child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 200),
-                                      curve: Curves.easeInOut,
-                                      width: double.infinity,
-                                      height: 44.0,
-                                      decoration: BoxDecoration(
-                                        color: Color(0xFF675AFF),
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                        shape: BoxShape.rectangle,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.space_dashboard_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
-                                              size: 24.0,
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  "Dashboard",
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('dashboard');
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 200),
+                                        curve: Curves.easeInOut,
+                                        width: double.infinity,
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                                Icons.space_dashboard_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 24.0,
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    "Dashboard",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -262,8 +508,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                         width: double.infinity,
                                         height: 44.0,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                          color: Color.fromRGBO(4, 164, 244, 1),
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                           shape: BoxShape.rectangle,
@@ -278,10 +523,10 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Icon(
-                                                Icons.category_outlined,
+                                                Icons.space_dashboard_outlined,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                        .primaryBtnText,
                                                 size: 24.0,
                                               ),
                                               Expanded(
@@ -289,13 +534,16 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
-                                                  child:
-                                                      Text("Top Level Category",
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                          )),
+                                                  child: Text(
+                                                    "Top Level Category",
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -453,8 +701,9 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     child: InkWell(
-                                               onTap: () async {
-              context.pushNamed('user');},
+                                      onTap: () async {
+                                        context.pushNamed('user');
+                                      },
                                       child: AnimatedContainer(
                                         duration: Duration(milliseconds: 200),
                                         curve: Curves.easeInOut,
@@ -468,8 +717,9 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                           shape: BoxShape.rectangle,
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                              8.0, 0.0, 8.0, 0.0),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -494,10 +744,9 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primaryText,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                         ),
                                                   ),
                                                 ),
@@ -867,18 +1116,15 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: Text(
-                                           "WTI Oil",
-                                            style: FlutterFlowTheme.of(
+                                            "WTI Oil",
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyLarge
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
-                                                
+                                                      .primaryText,
+                                                ),
                                           ),
                                         ),
                                         Padding(
@@ -911,7 +1157,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                               ),
                                                     ),
                                                     TextSpan(
-                                                      text: "finance_commodities_wtioil" ,
+                                                      text:
+                                                          "finance_commodities_wtioil",
                                                       style: TextStyle(),
                                                     )
                                                   ],
@@ -941,7 +1188,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                               ),
                                                     ),
                                                     TextSpan(
-                                                      text:"adastorageaccount",
+                                                      text: "adastorageaccount",
                                                       style: TextStyle(),
                                                     )
                                                   ],
@@ -971,7 +1218,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                               ),
                                                     ),
                                                     TextSpan(
-                                                      text: " https//pacemakerdataplatform.table.cosmis.azure:443/",
+                                                      text:
+                                                          " https//pacemakerdataplatform.table.cosmis.azure:443/",
                                                       style: TextStyle(),
                                                     )
                                                   ],
@@ -1001,7 +1249,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                               ),
                                                     ),
                                                     TextSpan(
-                                                      text: " 8J388JJ1949DJKDL91019A1KFJ828NF8J9==",
+                                                      text:
+                                                          " 8J388JJ1949DJKDL91019A1KFJ828NF8J9==",
                                                       style: TextStyle(),
                                                     )
                                                   ],
@@ -1031,7 +1280,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                               ),
                                                     ),
                                                     TextSpan(
-                                                      text: "  1NYMMTJ8AJJF74JDJ72NNC82LA91AKF0A ==",
+                                                      text:
+                                                          "  1NYMMTJ8AJJF74JDJ72NNC82LA91AKF0A ==",
                                                       style: TextStyle(),
                                                     )
                                                   ],
@@ -1044,7 +1294,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(
-                                                      text:  "PRIMARY CONNECTION STRING:",
+                                                      text:
+                                                          "PRIMARY CONNECTION STRING:",
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1061,7 +1312,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                               ),
                                                     ),
                                                     TextSpan(
-                                                      text: " DefaultEndpointsProtocoll=https;AccountName=adastorageaccount;AccountKey=8J388JJ1949DJKDL91019A1KFJ828NF8J9==",
+                                                      text:
+                                                          " DefaultEndpointsProtocoll=https;AccountName=adastorageaccount;AccountKey=8J388JJ1949DJKDL91019A1KFJ828NF8J9==",
                                                       style: TextStyle(),
                                                     )
                                                   ],
@@ -1074,7 +1326,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(
-                                                      text: "SECONDARY CONNECTION STRING: ",
+                                                      text:
+                                                          "SECONDARY CONNECTION STRING: ",
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1091,7 +1344,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                               ),
                                                     ),
                                                     TextSpan(
-                                                      text: " DefaultEndpointsProtocoll=https;AccountName=adastorageaccount;AccountKey=1NYMMTJ8AJJF74JDJ72NNC82LA91AKF0A==",
+                                                      text:
+                                                          " DefaultEndpointsProtocoll=https;AccountName=adastorageaccount;AccountKey=1NYMMTJ8AJJF74JDJ72NNC82LA91AKF0A==",
                                                       style: TextStyle(),
                                                     )
                                                   ],
@@ -1103,7 +1357,33 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                             ],
                                           ),
                                         ),
-                                        Padding(
+                                        /* SfDataGrid(
+                                          key: key,
+                                          source: source,
+                                          columns: columns,
+                                          gridLinesVisibility:
+                                              GridLinesVisibility.both,
+                                          headerGridLinesVisibility:
+                                              GridLinesVisibility.both,
+                                          onCellTap:
+                                              (DataGridCellTapDetails details) {
+                                            if (details
+                                                    .rowColumnIndex.rowIndex ==
+                                                0) {
+                                              buildShowMenu(context, details);
+                                            }
+                                          },
+                                        ), */
+                                        Container(
+                                          child: SfDataGrid(
+                                            
+                                              columnWidthMode:
+                                                  ColumnWidthMode.fill,
+                                              source: listDataGridSource,
+                                              columns: getColumns()),
+                                        ),
+
+                                        /*    Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 25.0, 0.0, 0.0),
@@ -1206,7 +1486,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                         .secondaryBackground,
                                                   ),
                                                   child: Text(
-                                                   "Description",
+                                                    "Description",
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1289,7 +1569,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                         .secondaryBackground,
                                                   ),
                                                   child: Text(
-                                                   "Feature",
+                                                    "Feature",
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1367,7 +1647,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1429,7 +1709,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1475,7 +1755,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1537,7 +1817,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1583,7 +1863,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1645,7 +1925,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1691,7 +1971,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1753,7 +2033,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1799,7 +2079,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1861,7 +2141,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1907,7 +2187,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1969,7 +2249,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2015,7 +2295,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2077,7 +2357,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2123,7 +2403,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2185,7 +2465,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2231,7 +2511,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2293,7 +2573,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2339,7 +2619,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2401,7 +2681,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2447,7 +2727,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2509,7 +2789,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2555,7 +2835,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2617,7 +2897,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2663,7 +2943,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2725,7 +3005,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2771,7 +3051,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2833,7 +3113,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2879,7 +3159,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2941,7 +3221,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -2987,7 +3267,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3049,7 +3329,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3095,7 +3375,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3157,7 +3437,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3203,7 +3483,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3265,7 +3545,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3311,7 +3591,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3373,7 +3653,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3419,7 +3699,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3481,7 +3761,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3527,7 +3807,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3589,7 +3869,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3635,7 +3915,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3697,7 +3977,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3743,7 +4023,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3805,7 +4085,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3851,7 +4131,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3913,7 +4193,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -3959,7 +4239,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4021,7 +4301,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4067,7 +4347,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4129,7 +4409,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4175,7 +4455,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4237,7 +4517,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4283,7 +4563,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4345,7 +4625,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4391,7 +4671,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4453,7 +4733,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4499,7 +4779,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4561,7 +4841,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4607,7 +4887,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4669,7 +4949,7 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                       .secondaryBackground,
                                                 ),
                                                 child: Text(
-                                                 "Feature",
+                                                  "Feature",
                                                   textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -4677,8 +4957,8 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
                                                 ),
                                               ),
                                             ],
-                                          ),
-                                        ),
+                                          ),  
+                                        ),*/
                                       ],
                                     ),
                                   ),
@@ -4698,17 +4978,55 @@ class _SingleItemWidgetState extends State<SingleItemWidget> {
       ),
     );
   }
+
   void showDropdownNotificationDialog(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        content: Dropdown05NotificationsWidget(),
-      );
-    },
-  );
-}
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          content: Dropdown05NotificationsWidget(),
+        );
+      },
+    );
+  }
+
+  List<GridColumn> getColumnsnew() {
+    List<GridColumn> columns;
+    columns = <GridColumn>[
+      GridColumn(
+          columnName: 'id',
+          width: 140,
+          label: buildHeaderCell(Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text(
+              'Feature',
+              overflow: TextOverflow.ellipsis,
+            ),
+          ))),
+      GridColumn(
+          columnName: 'productId',
+          width: 150,
+          label: buildHeaderCell(Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text(
+              'Data type',
+              overflow: TextOverflow.ellipsis,
+            ),
+          ))),
+      GridColumn(
+          columnName: 'name',
+          width: 185,
+          label: buildHeaderCell(Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text(
+              'Description',
+              overflow: TextOverflow.ellipsis,
+            ),
+          ))),
+    ];
+    return columns;
+  }
 }

@@ -263,7 +263,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                         width: double.infinity,
                                         height: 44.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF675AFF),
+                                        color: Color.fromRGBO(4, 164, 244, 1),
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                           shape: BoxShape.rectangle,
@@ -296,9 +296,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
+                                                          color: Colors.white,
                                                         ),
                                                   ),
                                                 ),

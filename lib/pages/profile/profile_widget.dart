@@ -518,7 +518,7 @@ Future<String> uploadImage(html.File file) async {
                                     width: double.infinity,
                                     height: 44.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0xFF675AFF),
+                                      color: Color.fromRGBO(4, 164, 244, 1),
                                       borderRadius: BorderRadius.circular(12.0),
                                       shape: BoxShape.rectangle,
                                     ),
@@ -549,9 +549,7 @@ Future<String> uploadImage(html.File file) async {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
+                                                          color: Colors.white,
                                                         ),
                                               ),
                                             ),

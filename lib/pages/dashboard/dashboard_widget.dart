@@ -1,23 +1,18 @@
-import 'package:pacemaker_data_platform/components/dropdown05_notifications_model.dart';
 import 'package:pacemaker_data_platform/components/dropdown05_notifications_widget.dart';
 import 'package:pacemaker_data_platform/model/model.dart';
 import 'package:pacemaker_data_platform/model/sample_view.dart';
-import 'package:pacemaker_data_platform/pages/profile/profile_widget.dart';
 import 'package:pacemaker_data_platform/samples/chart/cartesian_charts/series_features/data_label/default_data_labels.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
-import '/components/side_nav02_widget.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart' as gauge;
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({Key? key}) : super(key: key);
@@ -35,6 +30,17 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   late SampleModel model;
 
   List<ChartSampleData>? newchartData;
+
+  String formatDate(int numericDate) {
+    String dateStr = numericDate.toString();
+    return '${dateStr.substring(0, 2)}.${dateStr.substring(2, 4)}.${dateStr.substring(4)}';
+  }
+
+  List<String> showMenuItems = <String>[
+    'Ascending',
+    'Descending',
+    'Clear Sorting'
+  ];
 
   @override
   void initState() {
@@ -71,11 +77,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         y: 3,
         secondSeriesYValue: 54,
       ),
-      ChartSampleData(
-        x: 'Su',
-        y: 6,
-        secondSeriesYValue: 57,
-      ),
     ];
 
     isCardView = model.isCardView && !model.isWebFullView;
@@ -98,6 +99,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       ChartSampleData(x: 21082023, y: 23, yValue: 17),
       ChartSampleData(x: 22082023, y: 23, yValue: 4)
     ];
+
+    testchart = <StringChartSampleData>[
+      StringChartSampleData(x: formatDate(17082023), y: 21, yValue: 12),
+      StringChartSampleData(x: formatDate(18082023), y: 24, yValue: 14),
+      StringChartSampleData(x: formatDate(19082023), y: 28, yValue: 5),
+      StringChartSampleData(x: formatDate(20082023), y: 27, yValue: 9),
+      StringChartSampleData(x: formatDate(21082023), y: 23, yValue: 17),
+      StringChartSampleData(x: formatDate(22082023), y: 23, yValue: 4)
+    ];
     super.initState();
     _model = createModel(context, () => DashboardModel());
 
@@ -113,6 +123,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   List<String>? _positionType;
   List<String>? _chartAlign;
   List<ChartSampleData>? chartData;
+  List<StringChartSampleData>? testchart;
   ChartDataLabelAlignment? _labelPosition;
   ChartAlignment? _chartAlignment;
   TooltipBehavior? _tooltipBehavior;
@@ -299,7 +310,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                         width: double.infinity,
                                         height: 44.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFF675AFF),
+                                          color: Color.fromRGBO(4, 164, 244, 1),
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                           shape: BoxShape.rectangle,
@@ -332,9 +343,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
+                                                          color: Colors.white,
                                                         ),
                                                   ),
                                                 ),
@@ -975,61 +984,74 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                         height:
                                             MediaQuery.sizeOf(context).height *
                                                 0.16,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.08,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.06,
-                                              child: ClipRRect(
-                                                borderRadius: BorderRadius.circular(10),
-                                                child: Image.asset(
-                                                  "assets/images/datapipeline.jpg",
-                                                  fit: BoxFit.fitWidth,
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 15.0),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.08,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.06,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  child: Image.asset(
+                                                    "assets/images/datapipeline.jpg",
+                                                    fit: BoxFit.fitWidth,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                            Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.13,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.08,
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    "Total Pipelines",
-                                                    style: TextStyle(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 4.0),
-                                                    child: Text("1",
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 8.0),
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.06,
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        "Total Pipelines",
                                                         style: TextStyle(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryText,
                                                             fontWeight:
                                                                 FontWeight
-                                                                    .w600)),
+                                                                    .bold),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 4.0),
+                                                        child: Text("1",
+                                                            style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600)),
+                                                      ),
+                                                    ],
                                                   ),
-                                                ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Container(
@@ -1066,14 +1088,38 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                       ),
                                                 ),
                                                 primaryXAxis: CategoryAxis(
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
                                                     majorGridLines:
                                                         const MajorGridLines(
                                                             width: 0),
                                                     labelPlacement:
                                                         LabelPlacement.onTicks),
                                                 primaryYAxis: NumericAxis(
-                                                    minimum: 30,
-                                                    maximum: 80,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                    minimum: 1,
+                                                    maximum: 10,
                                                     axisLine: const AxisLine(
                                                         width: 0),
                                                     edgeLabelPlacement:
@@ -1144,7 +1190,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               .primaryBackground,
                                           canShowMarker: true,
                                         ),
-                                        primaryXAxis: NumericAxis(
+                                        primaryXAxis: CategoryAxis(
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
                                               .bodySmall
@@ -1182,21 +1228,24 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                           minorTickLines:
                                               MinorTickLines(size: 0),
                                         ),
-                                        series: <SplineSeries<ChartSampleData,
-                                            num>>[
-                                          SplineSeries<ChartSampleData, num>(
+                                        series: <SplineSeries<
+                                            StringChartSampleData, String>>[
+                                          SplineSeries<StringChartSampleData,
+                                                  String>(
                                               enableTooltip: true,
                                               legendIconType:
                                                   LegendIconType.rectangle,
-                                              dataSource: chartData!,
+                                              dataSource: testchart!,
                                               color: const Color.fromRGBO(
                                                   140, 198, 64, 1),
                                               width: 2,
                                               xValueMapper:
-                                                  (ChartSampleData sales, _) =>
-                                                      sales.x as num,
+                                                  (StringChartSampleData sales,
+                                                          _) =>
+                                                      sales.x,
                                               yValueMapper:
-                                                  (ChartSampleData sales, _) =>
+                                                  (StringChartSampleData sales,
+                                                          _) =>
                                                       sales.y,
                                               markerSettings:
                                                   const MarkerSettings(
@@ -1214,18 +1263,21 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     _horizontalPaddding,
                                                     _verticalPaddding),
                                               )),
-                                          SplineSeries<ChartSampleData, num>(
+                                          SplineSeries<StringChartSampleData,
+                                                  String>(
                                               legendIconType:
                                                   LegendIconType.rectangle,
-                                              color: const Color.fromRGBO(
-                                                  0, 160, 245, 0.8),
-                                              dataSource: chartData!,
+                                              color: Color.fromRGBO(
+                                                  4, 164, 244, 1),
+                                              dataSource: testchart!,
                                               width: 2,
                                               xValueMapper:
-                                                  (ChartSampleData sales, _) =>
-                                                      sales.x as num,
+                                                  (StringChartSampleData sales,
+                                                          _) =>
+                                                      sales.x,
                                               yValueMapper:
-                                                  (ChartSampleData sales, _) =>
+                                                  (StringChartSampleData sales,
+                                                          _) =>
                                                       sales.yValue,
                                               markerSettings:
                                                   const MarkerSettings(
@@ -1254,18 +1306,247 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.26,
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.16,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                    ),
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.26,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.17,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(29.0),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.13,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.16,
+                                              child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 15.0),
+                                                  child: Column(
+                                                    children: [
+                                                    Text("Processed data tables", style: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w700,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),),
+                                                      Container(
+                                                         width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.13,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.12,
+                                                        child: SfRadialGauge(
+                                                          enableLoadingAnimation:
+                                                              true,
+                                                          axes: <RadialAxis>[
+                                                            RadialAxis(
+                                                                showLabels: false,
+                                                                showTicks: true,
+                                                                radiusFactor: 0.6,
+                                                                maximum: 100,
+                                                                axisLineStyle: AxisLineStyle(
+                                                                    cornerStyle: gauge
+                                                                        .CornerStyle
+                                                                        .startCurve,
+                                                                    thickness: 3),
+                                                                annotations: <GaugeAnnotation>[
+                                                                  GaugeAnnotation(
+                                                                      angle: 90,
+                                                                      widget: Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize
+                                                                                .min,
+                                                                        children: <Widget>[
+                                                                          Text('92',
+                                                                              style: TextStyle(
+                                                                                color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                                  fontWeight: FontWeight
+                                                                                      .w600,
+                                                                                  
+                                                                                  fontSize: 14)),
+                                                                         
+                                                                        ],
+                                                                      )),
+                                                                  GaugeAnnotation(
+                                                                    angle: 124,
+                                                                    positionFactor:
+                                                                        1.1,
+                                                                    widget: Text('0',
+                                                                        style: TextStyle(
+                                                                          color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                            fontSize: isCardView
+                                                                                ? 12
+                                                                                : 14)),
+                                                                  ),
+                                                                  GaugeAnnotation(
+                                                                    angle: 54,
+                                                                    positionFactor:
+                                                                        1.1,
+                                                                    widget: Text(
+                                                                        '611',
+                                                                        style: TextStyle(
+                                                                          color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                            fontSize: isCardView
+                                                                                ? 12
+                                                                                : 14)),
+                                                                  ),
+                                                                ],
+                                                                pointers: <GaugePointer>[
+                                                                  RangePointer(
+                                                                    value: 142,
+                                                                    width: 18,
+                                                                    pointerOffset: -6,
+                                                                    cornerStyle: gauge
+                                                                        .CornerStyle
+                                                                        .bothCurve,
+                                                                    color: Color.fromRGBO(4, 164, 244, 1),
+                                                                    gradient: SweepGradient(
+                                                                        colors: <Color>[
+                                                                          Color.fromRGBO(4, 164, 244, 1),
+                                                                          Color.fromRGBO(4, 164, 244, 1),
+                                                                        ],
+                                                                        stops: <double>[
+                                                                          0.25,
+                                                                          0.75
+                                                                        ]),
+                                                                  ),
+                                                                  MarkerPointer(
+                                                                    // value: isCardView ? 136 : _markerValue,
+                                                                    color:
+                                                                        Colors.white,
+                                                                    markerType:
+                                                                        MarkerType
+                                                                            .circle,
+                                                                  ),
+                                                                ]),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  )),
+                                            ),
+                                            Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.13,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.16,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Container(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.13,
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.16,
+                                                    child: SfCartesianChart(
+                                                      plotAreaBorderWidth: 0,
+                                                      title: ChartTitle(
+                                                        text: "Active user ",
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                ),
+                                                      ),
+                                                      primaryXAxis:
+                                                          CategoryAxis(
+                                                              labelStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontSize:
+                                                                            12,
+                                                                        fontWeight:
+                                                                            FontWeight.w400,
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                              majorGridLines:
+                                                                  const MajorGridLines(
+                                                                      width: 0),
+                                                              labelPlacement:
+                                                                  LabelPlacement
+                                                                      .onTicks),
+                                                      primaryYAxis: NumericAxis(
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontSize:
+                                                                        12,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400,
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                  ),
+                                                          minimum: 1,
+                                                          maximum: 10,
+                                                          axisLine:
+                                                              const AxisLine(
+                                                                  width: 0),
+                                                          edgeLabelPlacement:
+                                                              EdgeLabelPlacement
+                                                                  .shift,
+                                                          majorTickLines:
+                                                              const MajorTickLines(
+                                                                  size: 0)),
+                                                      series:
+                                                          _getDefaultSplineSeries(),
+                                                      tooltipBehavior:
+                                                          TooltipBehavior(
+                                                              enable: true),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        )),
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.26,
@@ -1277,6 +1558,339 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                             .secondaryBackground,
                                         borderRadius:
                                             BorderRadius.circular(20.0),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Center(
+                                              child: Text("Activity Feed",
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontSize: 12,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ))),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 8.0,
+                                                              right: 10),
+                                                      child: Icon(
+                                                        Icons.settings,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        size: 25,
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                            "New dataset added",
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                )),
+                                                        Text("25 min ago",
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontSize: 10,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w200,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                )),
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: () async {
+                                                  context
+                                                      .pushNamed('singleItem');
+                                                },
+                                                child: Container(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            right: 8.0),
+                                                    child: Row(
+                                                      children: [
+                                                        Text("View Details",
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                )),
+                                                        Icon(
+                                                          Icons
+                                                              .arrow_right_rounded,
+                                                          size: 25,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 8.0,
+                                                              right: 10),
+                                                      child: Icon(
+                                                        Icons.settings,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        size: 25,
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                            "New dataset added",
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                )),
+                                                        Text(
+                                                            "about an hour ago",
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontSize: 10,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w200,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                )),
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 8.0),
+                                                  child: Row(
+                                                    children: [
+                                                      Text("View Details",
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              )),
+                                                      Icon(
+                                                        Icons
+                                                            .arrow_right_rounded,
+                                                        size: 25,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                child: Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 8.0,
+                                                              right: 10),
+                                                      child: Icon(
+                                                        Icons.settings,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                        size: 25,
+                                                      ),
+                                                    ),
+                                                    Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                            "New dataset added",
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontSize: 12,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                )),
+                                                        Text("about 5 hour ago",
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontSize: 10,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w200,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                )),
+                                                      ],
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 8.0),
+                                                  child: Row(
+                                                    children: [
+                                                      Text("View Details",
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              )),
+                                                      Icon(
+                                                        Icons
+                                                            .arrow_right_rounded,
+                                                        size: 25,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ],
@@ -1417,6 +2031,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   List<SplineSeries<ChartSampleData, String>> _getDefaultSplineSeries() {
     return <SplineSeries<ChartSampleData, String>>[
       SplineSeries<ChartSampleData, String>(
+        color: Color.fromRGBO(4, 164, 244, 1),
         dataLabelSettings: DataLabelSettings(
           textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Poppins',
@@ -1430,6 +2045,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         name: 'High',
       ),
       SplineSeries<ChartSampleData, String>(
+        color: Color.fromRGBO(4, 164, 244, 1),
         dataLabelSettings: DataLabelSettings(
           textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Poppins',
@@ -1567,6 +2183,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
   List<ColumnSeries<ChartSampleData, String>> _getDefaultColumnSeries() {
     return <ColumnSeries<ChartSampleData, String>>[
       ColumnSeries<ChartSampleData, String>(
+        color: Color.fromRGBO(4, 164, 244, 1),
         width: 0.2,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(8.0),
